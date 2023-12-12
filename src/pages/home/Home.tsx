@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader';
 import Avatar from '../../components/avatar/Avatar';
 import CreatePost from '../../components/createPost/CreatePost';
 import PostList from '../../components/postList/PostList';
-import Stories from '../../components/stories/Stories';
 import { auth } from '../../firebase';
 import { useUserData } from '../../hooks/useUsers';
 import s from './Home.module.scss';
@@ -20,7 +19,8 @@ const Home: React.FC = () => {
         height={540}
         viewBox="0 0 550 550"
         backgroundColor="#f3f3f3"
-        foregroundColor="#ecebeb">
+        foregroundColor="#ecebeb"
+      >
         <rect x="188" y="338" rx="0" ry="0" width="1" height="0" />
         <rect x="7" y="10" rx="32" ry="32" width="531" height="485" />
       </ContentLoader>
@@ -29,8 +29,6 @@ const Home: React.FC = () => {
 
   return (
     <div className={s.root}>
-      {auth.currentUser && <Stories />}
-
       {createPostMode && (
         <div className={s.createPost}>
           <CreatePost setCreatePostMode={setCreatePostMode} />
